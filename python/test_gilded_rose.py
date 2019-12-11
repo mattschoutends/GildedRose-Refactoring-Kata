@@ -23,6 +23,12 @@ class GildedRoseTest(unittest.TestCase):
         gilded_rose.update_quality()
         self.assertEqual(0, items[0].quality)
 
+    def test_foo_sellin_decreases_by_one(self):
+        items = [Item("foo", 1, 1)]
+        gilded_rose = GildedRose(items)
+        gilded_rose.update_quality()
+        self.assertEqual(0, items[0].sell_in)
+
     def test_aged_brie_increases_in_quality(self):
         items = [Item("Aged Brie", 1, 0)]
         gilded_rose = GildedRose(items)
@@ -35,7 +41,7 @@ class GildedRoseTest(unittest.TestCase):
         gilded_rose.update_quality()
         self.assertEqual(50, items[0].quality)
 
-    def test_sulfuras_does_not_decreas_in_quality(self):
+    def test_sulfuras_does_not_decrease_in_quality(self):
         items = [Item("Sulfuras, Hand of Ragnaros", 1, 10)]
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
