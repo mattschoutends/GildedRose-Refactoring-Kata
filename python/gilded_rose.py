@@ -6,9 +6,11 @@ class GildedRose(object):
         self.items = items
 
     def update_quality(self):
+        QUALITY_RATE = 1
+
         for item in self.items:
             if item.name == "Aged Brie":
-                item.quality += 1
+                item.quality += QUALITY_RATE
             elif item.name == "Sulfuras, Hand of Ragnaros":
                 pass
             elif item.name.startswith("Backstage passes"):
@@ -20,13 +22,13 @@ class GildedRose(object):
                 elif item.sell_in <= 5:
                     item.quality += 3
                 else:
-                    item.quality += 1
+                    item.quality += QUALITY_RATE
             else:
                 item.sell_in -= 1
                 if item.sell_in < 0:
-                    item.quality -= 2
+                    item.quality -= 2 * QUALITY_RATE
                 else:
-                    item.quality -= 1
+                    item.quality -= 1 * QUALITY_RATE
 
             if item.quality < 0:
                 item.quality = 0
