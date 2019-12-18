@@ -12,6 +12,7 @@ class GildedRose(object):
             if item.name == "Aged Brie":
                 item.quality += QUALITY_RATE
             elif item.name == "Sulfuras, Hand of Ragnaros":
+                item.quality = 80
                 pass
             elif item.name.startswith("Conjured"):
                 item.quality -= 2 * QUALITY_RATE
@@ -34,10 +35,9 @@ class GildedRose(object):
 
             if item.quality < 0:
                 item.quality = 0
-            if item.quality > 50:
+            if item.quality > 50 and item.name != "Sulfuras, Hand of Ragnaros":
                 item.quality = 50
-
-
+            
 class Item:
     def __init__(self, name, sell_in, quality):
         self.name = name
