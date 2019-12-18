@@ -13,6 +13,8 @@ class GildedRose(object):
                 item.quality += QUALITY_RATE
             elif item.name == "Sulfuras, Hand of Ragnaros":
                 pass
+            elif item.name.startswith("Conjured"):
+                item.quality -= 2 * QUALITY_RATE
             elif item.name.startswith("Backstage passes"):
                 item.sell_in -= 1
                 if item.sell_in <= 10 and item.sell_in > 5:
