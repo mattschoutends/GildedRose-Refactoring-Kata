@@ -17,10 +17,10 @@ class GildedRose(object):
                 item.quality -= 2 * QUALITY_RATE
             elif item.name.startswith("Backstage passes"):
                 item.sell_in -= 1
-                if item.sell_in <= 10 and item.sell_in > 5:
-                    item.quality += 2
-                elif item.sell_in <= 0:
+                if item.sell_in <= 0:
                     item.quality = 0
+                elif item.sell_in <= 10 and item.sell_in > 5:
+                    item.quality += 2
                 elif item.sell_in <= 5:
                     item.quality += 3
                 else:
